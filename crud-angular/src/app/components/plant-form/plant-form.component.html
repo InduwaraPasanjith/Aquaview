@@ -1,0 +1,43 @@
+<div class="plant-page" style="background-image: url('https://evreka.co/wp-content/uploads/2022/04/Wastewater-treatment-and-disposal-evreka-2048x1364.jpg'); background-size: cover; background-position: center; height: 100vh;">
+  <div class="flex justify-center items-center h-full">
+    <div class="shadow-lg p-8 bg-white rounded-lg max-w-lg w-full">
+      <h4 class="text-center">{{ isEdit ? 'Edit Plant Detail' : 'Create Plant' }}</h4>
+      
+      <form [formGroup]="plant" (ngSubmit)="save()">
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Name</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Name"
+              formControlName="name"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Address</mat-label>
+            <input
+              type="text"
+              matInput
+              placeholder="Address"
+              formControlName="address"
+            />
+          </mat-form-field>
+        </div>
+        
+        <div class="flex justify-center mt-4">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!plant.valid"
+          >
+            {{ isEdit ? 'Update' : 'Add' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

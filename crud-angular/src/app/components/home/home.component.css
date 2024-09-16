@@ -1,0 +1,69 @@
+/* Flexbox layout for charts */
+.chart-container {
+    display: flex;
+    justify-content: space-around; /* Align charts evenly */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    margin-bottom: 20px;
+  }
+  
+  .chart-item {
+    flex: 1 1 30%; /* Each chart takes up 30% of the row */
+    margin: 10px;
+  }
+  
+  canvas {
+    max-width: 100%; /* Ensure canvas fits the parent container */
+    height: auto; /* Keep aspect ratio */
+  }
+  
+  /* Optional: Add media queries to make it responsive */
+  @media (max-width: 768px) {
+    .chart-item {
+      flex: 1 1 100%; /* Make charts stack vertically on small screens */
+    }
+  }
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .banner {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .banner-text h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .banner-text p {
+    font-size: 1.5rem;
+    margin: 10px 0 0 0;
+  }
+  
+  .system-info {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }

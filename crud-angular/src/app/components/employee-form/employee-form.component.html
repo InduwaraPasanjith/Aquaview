@@ -1,0 +1,71 @@
+<div class="employee-page" style="background-image: url('https://blog.jencoi.com/hubfs/wastewater_industrial_treatment.jpg'); background-size: cover; background-position: center; height: 100vh;">
+  <div class="flex justify-center items-center h-full">
+    <div class="shadow-lg p-8 bg-white rounded-lg max-w-lg w-full">
+      <h4 *ngIf="isEdit; else createEmployee" class="text-center">{{ isEdit ? 'Edit Employee Detail' : 'Create Employee' }}</h4>
+      <ng-template #createEmployee>
+        <h4 class="text-center">Create Employee</h4>
+      </ng-template>
+      
+      <form [formGroup]="employeeForm" (ngSubmit)="save()">
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="Name" formControlName="name" />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput placeholder="Email" formControlName="email" />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Phone</mat-label>
+            <input type="text" matInput placeholder="Phone" formControlName="phone" />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>NIC</mat-label>
+            <input type="text" matInput placeholder="NIC" formControlName="nic" />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput placeholder="Address" formControlName="address" />
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Plant</mat-label>
+            <mat-select formControlName="plant">
+              <mat-option *ngFor="let plant of plants" [value]="plant">{{ plant.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="w-full">
+          <mat-form-field class="w-full">
+            <mat-label>User Type</mat-label>
+            <mat-select formControlName="userType">
+              <mat-option *ngFor="let type of userTypes" [value]="type.value">{{ type.viewValue }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex justify-center mt-4">
+          <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">
+            {{ isEdit ? 'Update' : 'Add' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

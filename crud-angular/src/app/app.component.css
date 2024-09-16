@@ -1,0 +1,43 @@
+.app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .toolbar-item {
+    padding: 10px 15px;
+  }
+  
+  .toolbar-item button {
+    width: 100%;
+    justify-content: start;
+  }
+  
+  .logout-button {
+    margin-top: auto;
+    padding: 10px 15px;
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fffafa;
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .centered-content {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    height: 10vh;           /* Full viewport height */
+  }
+  

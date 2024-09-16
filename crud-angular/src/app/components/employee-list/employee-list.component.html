@@ -1,0 +1,64 @@
+<div class="employee-list-page" style="background-image: url('https://blog.jencoi.com/hubfs/wastewater_industrial_treatment.jpg'); background-size: cover; background-position: center; height: 100vh;">
+  <div class="flex justify-center  h-full">
+    <div class="mat-elevation-z8 w-full max-w-6xl p-8 bg-white shadow-lg rounded-lg">
+      <div class="flex justify-end mb-4">
+        <button routerLink="/create-employee" mat-raised-button color="primary">
+          Add Employee
+        </button>
+      </div>
+      <table mat-table [dataSource]="employeeList" class="w-full">
+        <!-- Name Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nic">
+          <th mat-header-cell *matHeaderCellDef>NIC</th>
+          <td mat-cell *matCellDef="let element">{{ element.nic }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="userType">
+          <th mat-header-cell *matHeaderCellDef>User Type</th>
+          <td mat-cell *matCellDef="let element">{{ element.userType }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="plant">
+          <th mat-header-cell *matHeaderCellDef>Plant</th>
+          <td mat-cell *matCellDef="let element">{{ element.plant.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" (click)="edit(element.id)" class="mr-4">Edit</button>
+            <button mat-raised-button color="warn" (click)="delete(element.id)">Delete</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</div>

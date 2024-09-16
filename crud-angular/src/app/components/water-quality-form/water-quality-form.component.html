@@ -1,0 +1,97 @@
+<div class="p-8 mt-4" style="background-image: url('https://static.vecteezy.com/system/resources/previews/001/072/376/original/network-connections-on-white-background-vector.jpg'); background-size: cover; background-position: center; height: 100vh;">
+  <div class="shadow p-6">
+    <!-- Form Title -->
+    <h4>Wastewater Quality Prediction</h4>
+    
+    <!-- Form to capture wastewater parameters -->
+    <form [formGroup]="employeeForm" (ngSubmit)="save()">
+      <!-- Total Suspended Solids (TSS) Field -->
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Total Suspended Solids (TSS)</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Total Suspended Solids (TSS)"
+            formControlName="TSS"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- Chlorine Field -->
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Chlorine</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Chlorine"
+            formControlName="Chlorine"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- pH at Ambient Temperature Field -->
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>pH at Ambient Temperature</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="pH at Ambient Temperature"
+            formControlName="pH"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- Chemical Oxygen Demand (COD) Field -->
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Chemical Oxygen Demand (COD)</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Chemical Oxygen Demand (COD)"
+            formControlName="COD"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- Temperature of Discharge Field -->
+      <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+          <mat-label>Temperature of Discharge</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Temperature of Discharge"
+            formControlName="temperature"
+          />
+        </mat-form-field>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-center">
+        <button mat-raised-button color="primary" [disabled]="!employeeForm.valid">
+          Check
+        </button>
+      </div>
+    </form>
+
+    <!-- Display the Prediction Result -->
+    <div *ngIf="predictionResult && predictionResult.messages" class="mt-4">
+      <h3>Prediction Result:</h3>
+
+      <!-- Display the Prediction and Confidence -->
+      <p><strong>Prediction:</strong> {{ predictionResult.prediction }}</p>
+      <p><strong>Confidence:</strong> {{ predictionResult.confidence }}</p>
+
+      <!-- Display the Messages for Each Parameter -->
+      <ul>
+        <li *ngFor="let key of objectKeys(predictionResult.messages)">
+          <strong>{{ key }}:</strong> {{ predictionResult.messages[key] }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
